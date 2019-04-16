@@ -1,7 +1,9 @@
 <html>
+  <head>
+    <script async src="server.js"></script>
+  </head>
   <body>
     <p id='server-time'></p>
-    <script async src="server.js"></script>
     <script>
       var HOST = location.origin.replace(/^http/, 'ws')
       var ws = new WebSocket(HOST);
