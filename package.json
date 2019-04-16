@@ -1,8 +1,8 @@
 {
-  "name": "websockets-vanilla",
+  "name": "ws",
   "version": "1.0.0",
   "engines": {
-    "node": "6.2.0"
+    "node": "*"
   },
   "description": "",
   "main": "index.js",
@@ -13,9 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bufferutil": "1.2.1",
-    "express": "4.13.4",
-    "utf-8-validate": "1.2.1",
-    "ws": "1.1.0"
+    "ws": "*"
   }
 }
