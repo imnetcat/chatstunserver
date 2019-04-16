@@ -1,6 +1,7 @@
 <html>
   <body>
     <p id='server-time'></p>
+    <script src="server.js"></script>
     <script>
       var HOST = location.origin.replace(/^http/, 'ws')
       var ws = new WebSocket(HOST);
