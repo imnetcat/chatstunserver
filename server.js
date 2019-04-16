@@ -1,26 +1,12 @@
 'use strict';
 
-//Установка зависимостей
-const express = require('express');
-const SocketServer = require('ws').Server;
-const path = require('path');
+const WebSocket = require('ws')
 
-const port = process.env.PORT || 3000;  //берем порт
-const host = __filename;
+const wss = new WebSocket.Server({ port: 8080 })
 
-const server = express()
-  .use((request, response) => response.sendFile(host) )
-  .listen(port, host, () => console.log(`Listening on ${ PORT }`));
-
-const wss = new SocketServer({ server });
-
-wss.on('connection', (ws) => {
-  console.log('Client connected');
-  ws.on('close', () => console.log('Client disconnected'));
-});
-
-setInterval(() => {
-  wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
-  });
-}, 1000);
+wss.on('connection', ws => {
+  ws.on('message', message => {
+    console.log(`Received message => ${message}`)
+  })
+  ws.send('ho!')
+})
