@@ -64,12 +64,12 @@ class CLIENT {
     return '${this.socket}';
   }
   set socket(newValue) {
-    [this.socket] = newValue;
+    this.socket = newValue;
   }
   get nick() {
     return '${this.firstName}';
   }
   set nick(newValue) {
-    [this.nick] = newValue;
+    this.nick = newValue;
   }
 }
