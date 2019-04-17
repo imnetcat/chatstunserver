@@ -11,7 +11,7 @@
 
 var https = require('https');
 var fs = require('fs');
-var WebSocketServer = require('websocket').server;
+var WebSocketServer = require('ws').server;
 
 var connectionArray = [];
 var nextID = Date.now();
