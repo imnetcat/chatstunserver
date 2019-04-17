@@ -6,7 +6,7 @@
     "ws": "*"
   },
   "engines": {
-    "node": "*"
+    "node": "^10.15.3"
   },
   "scripts": {
     "start": "node index.js"
