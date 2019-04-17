@@ -24,12 +24,13 @@ wss.on("connection", function(sock) {
   
   sock.on("message", function(data) {
     var arr = data.split("{");
+    console.log("message " + data);
+    console.log("arr[0] " + arr[0]);
     if(arr.length > 1){ 
       // message {receiver}{message}
       var receiver = arr[1].split("}")[0];
       var message = arr[2].split("}")[0];
       var n = 0;
-      console.log("message " + data);
       while(n < CLIENTS.length){
         if(CLIENTS[n].nickg() == receiver){
           break;
