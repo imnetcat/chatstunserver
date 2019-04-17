@@ -19,7 +19,7 @@ wss.on("connection", function(sock) {
   
   var id = CLIENTS.length;
   
-  var tmp = new CLIENTS(sock, "");
+  var tmp = new CLIENT(sock, "");
   CLIENTS.push(tmp);
   
   sock.on("message", function(data) {
