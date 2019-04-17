@@ -12,7 +12,7 @@ server.listen(port);
 var wss = new WebSocketServer({server: server});
 console.log("websocket server created");
 
-var CLIENTS : CLIENT[] = new CLIENT[];
+var CLIENTS = new Array();
 
 wss.on("connection", function(sock) {
   console.log("websocket connection open");
