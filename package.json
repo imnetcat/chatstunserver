@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A simple WebSocket-based server.",
   "dependencies": {
-    "websocket": "^1.0.28"
+    "websocket": "^1.0.28",
+    "ws": "^1.1.0"
   },
   "scripts": {
     "start": "node server.js"
