@@ -29,6 +29,7 @@ wss.on("connection", function(sock) {
       var receiver = arr[1].split("}")[0];
       var message = arr[2].split("}")[0];
       var n = 0;
+      console.log("message " + data);
       while(n < CLIENTS.length){
         if(CLIENTS[n].nick() == receiver){
           break;
@@ -36,9 +37,11 @@ wss.on("connection", function(sock) {
       }
       if(n != CLIENTS.length){
         CLIENTS[n].socket().send(message);
+        console.log("message was send");
       }
     }else{
       // set nickname {nickname}
+      console.log("the nick name set " + arr[1].split("}")[0]);
       CLIENTS[id].nick(arr[1].split("}")[0]);
     }
   });
