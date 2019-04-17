@@ -7,7 +7,7 @@
   "main": "index.js",
   "browser": "browser.js",
   "scripts": {
-    "node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "async-limiter": "~1.0.0"
