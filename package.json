@@ -5,9 +5,8 @@
     "node": "*"
   },
   "description": "",
-  "main": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
