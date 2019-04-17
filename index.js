@@ -64,7 +64,7 @@ class CLIENT {
     return '${this.socket}';
   }
   set socket(newValue) {
-    [this.socket = newValue;
+    [this.socket] = newValue;
   }
   get nick() {
     return '${this.firstName}';
