@@ -31,18 +31,18 @@ wss.on("connection", function(sock) {
       var n = 0;
       console.log("message " + data);
       while(n < CLIENTS.length){
-        if(CLIENTS[n].nick() == receiver){
+        if(CLIENTS[n].nickg() == receiver){
           break;
         }
       }
       if(n != CLIENTS.length){
-        CLIENTS[n].socket().send(message);
+        CLIENTS[n].socketg().send(message);
         console.log("message was send");
       }
     }else{
       // set nickname {nickname}
       console.log("the nick name set " + arr[1].split("}")[0]);
-      CLIENTS[id].nick(arr[1].split("}")[0]);
+      CLIENTS[id].nicks(arr[1].split("}")[0]);
     }
   });
   
@@ -54,7 +54,7 @@ wss.on("connection", function(sock) {
 
 function sendAll (message) {
     for (var i=0; i<CLIENTS.length; i++) {
-        CLIENTS[i].socket().send(message);
+        CLIENTS[i].socketg().send(message);
     }
 }
 
@@ -63,16 +63,16 @@ class CLIENT {
     this.socket = socket;
     this.nick = nick;
   }
-  get socket() {
+  get socketg() {
     return '${this.socket}';
   }
-  set socket(newValue) {
+  set sockets(newValue) {
     this.socket = newValue;
   }
-  get nick() {
+  get nickg() {
     return '${this.firstName}';
   }
-  set nick(newValue) {
+  set nicks(newValue) {
     this.nick = newValue;
   }
 }
