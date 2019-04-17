@@ -1,12 +1,12 @@
 {
   "name": "node-ws-server",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "dependencies": {
     "express": "^4.16.4",
     "ws": "^6.2.1"
   },
   "engines": {
-    "node": "11.0.0"
+    "node": "^11.0.0"
   },
   "scripts": {
     "start": "node index.js"
