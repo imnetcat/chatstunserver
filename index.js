@@ -58,6 +58,7 @@ function sendAll (message) {
 }
 
 class CLIENT {
+  constructor() { }
   var socket;
   var nick;
 }
