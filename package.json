@@ -1,7 +1,7 @@
 {
   "name": "websocket-stun-server",
   "version": "1.0.0",
-  "description": "A simple WebSocket-based chat server.",
+  "description": "A simple WebSocket-based server.",
   "dependencies": {
     "websocket": "^1.0.28"
   },
