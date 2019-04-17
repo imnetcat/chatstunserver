@@ -6,7 +6,7 @@
     "ws": "*"
   },
   "engines": {
-    "node": "9.2.0"
+    "node": "8.9.3"
   },
   "scripts": {
     "start": "node index.js"
