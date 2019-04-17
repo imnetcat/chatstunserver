@@ -43,7 +43,7 @@ wss.on("connection", function(sock) {
       // set nickname {nickname}
       CLIENTS[id].nick = arr[1].split("}")[0];
     }
-  }
+  });
   
   ws.on("close", function() {
     console.log("websocket connection close");
