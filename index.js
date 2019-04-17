@@ -19,9 +19,7 @@ wss.on("connection", function(sock) {
   
   var id = CLIENTS.length;
   
-  var tmp = new CLIENTS();
-  tmp.nick = "";
-  tmp.socket = sock;
+  var tmp = new CLIENTS(sock, "");
   CLIENTS.push(tmp);
   
   sock.on("message", function(data) {
@@ -58,7 +56,20 @@ function sendAll (message) {
 }
 
 class CLIENT {
-  constructor() { }
-  var socket;
-  var nick;
+  constructor(socket, nick) { 
+    this.socket = socket;
+    this.nick = nick;
+  }
+  get socket() {
+    return '${this.socket}';
+  }
+  set socket(newValue) {
+    [this.socket = newValue;
+  }
+  get nick() {
+    return '${this.firstName}';
+  }
+  set nick(newValue) {
+    [this.nick] = newValue;
+  }
 }
