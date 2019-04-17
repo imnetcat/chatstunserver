@@ -46,7 +46,7 @@ wss.on("connection", function(sock) {
     }
   });
   
-  ws.on("close", function() {
+  sock.on("close", function() {
     console.log("websocket connection close");
     CLIENTS.splice(id, 1);
   });
