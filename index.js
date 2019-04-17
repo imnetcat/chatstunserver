@@ -30,16 +30,16 @@ wss.on("connection", function(sock) {
       var message = arr[2].split("}")[0];
       var n = 0;
       while(n < CLIENTS.length){
-        if(CLIENTS[n].nick == receiver){
+        if(CLIENTS[n].nick() == receiver){
           break;
         }
       }
       if(n != CLIENTS.length){
-        CLIENTS[n].socket.send(message);
+        CLIENTS[n].socket().send(message);
       }
     }else{
       // set nickname {nickname}
-      CLIENTS[id].nick = arr[1].split("}")[0];
+      CLIENTS[id].nick(arr[1].split("}")[0]);
     }
   });
   
@@ -51,7 +51,7 @@ wss.on("connection", function(sock) {
 
 function sendAll (message) {
     for (var i=0; i<CLIENTS.length; i++) {
-        CLIENTS[i].socket.send(message);
+        CLIENTS[i].socket().send(message);
     }
 }
 
