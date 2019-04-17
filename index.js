@@ -1,28 +1,63 @@
-var WebSocketServer = require("ws").Server
-var http = require("http")
-var express = require("express")
-var app = express()
-var port = process.env.PORT || 5000
+var WebSocketServer = require("ws").Server;
+var http = require("http");
+var express = require("express");
+var app = express();
+var port = process.env.PORT || 5000;
 
-app.use(express.static(__dirname + "/"))
+app.use(express.static(__dirname + "/"));
 
-var server = http.createServer(app)
-server.listen(port)
+var server = http.createServer(app);
+server.listen(port);
 
-console.log("http server listening on %d", port)
+var wss = new WebSocketServer({server: server});
+console.log("websocket server created");
 
-var wss = new WebSocketServer({server: server})
-console.log("websocket server created")
+var CLIENTS : CLIENT[] = new CLIENT[];
 
-wss.on("connection", function(ws) {
-  var id = setInterval(function() {
-    ws.send(JSON.stringify(new Date()), function() {  })
-  }, 1000)
-
-  console.log("websocket connection open")
-
+wss.on("connection", function(sock) {
+  console.log("websocket connection open");
+  
+  var id = CLIENTS.length;
+  
+  var tmp = new CLIENTS();
+  tmp.nick = "";
+  tmp.socket = sock;
+  CLIENTS.push(tmp);
+  
+  sock.on("message", function(data) {
+    var arr = data.split("{");
+    if(arr.length > 1){ 
+      // message {receiver}{message}
+      var receiver = arr[1].split("}")[0];
+      var message = arr[2].split("}")[0];
+      var n = 0;
+      while(n < CLIENTS.length){
+        if(CLIENTS[n].nick == receiver){
+          break;
+        }
+      }
+      if(n != CLIENTS.length){
+        CLIENTS[n].socket.send(message);
+      }
+    }else{
+      // set nickname {nickname}
+      CLIENTS[id].nick = arr[1].split("}")[0];
+    }
+  }
+  
   ws.on("close", function() {
-    console.log("websocket connection close")
-    clearInterval(id)
-  })
-})
+    console.log("websocket connection close");
+    CLIENTS.splice(id, 1);
+  });
+});
+
+function sendAll (message) {
+    for (var i=0; i<CLIENTS.length; i++) {
+        CLIENTS[i].socket.send(message);
+    }
+}
+
+class CLIENT {
+  var socket;
+  var nick;
+}
