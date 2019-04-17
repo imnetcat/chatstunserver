@@ -5,7 +5,7 @@
   "dependencies": {
     "websocket": "^1.0.28"
   },
-  "script": {
+  "scripts": {
     "start": "chatserver.js"
   }
 }
