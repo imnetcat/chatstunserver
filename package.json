@@ -1,6 +1,6 @@
 {
-  "name": "ws",
-  "version": "6.2.1",
+  "name": "wsserver",
+  "version": "2.0.0",
   "description": "",
   "keywords": "",
   "license": "MIT",
@@ -10,7 +10,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "async-limiter": "~1.0.0"
+    "async-limiter": "~1.0.0",
+    "ws": "6.2.1"
   },
   "devDependencies": {
     "bufferutil": "~4.0.1",
