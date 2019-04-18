@@ -32,12 +32,12 @@ wss.on("connection", function(sock) {
       console.log("receiver: " + receiver); 
       var n = 0;
       while(n < CLIENTS.length){
-        if(CLIENTS[n].nickg() == receiver){
+        if(CLIENTS[n].nickg == receiver){
           break;
         }
       }
       if(n != CLIENTS.length){
-        CLIENTS[n].socketg().send(message);
+        CLIENTS[n].socketg.send(message);
         console.log("message was send");
       }
     }else{
@@ -55,7 +55,7 @@ wss.on("connection", function(sock) {
 
 function sendAll (message) {
     for (var i=0; i<CLIENTS.length; i++) {
-        CLIENTS[i].socketg().send(message);
+        CLIENTS[i].socketg.send(message);
     }
 }
 
