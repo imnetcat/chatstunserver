@@ -65,13 +65,13 @@ class CLIENT {
     this.nick = nick;
   }
   get socketg() {
-    return '${this.socket}';
+    return this.socket;
   }
   set sockets(newValue) {
     this.socket = newValue;
   }
   get nickg() {
-    return '${this.firstName}';
+    return this.nick;
   }
   set nicks(newValue) {
     this.nick = newValue;
