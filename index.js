@@ -24,6 +24,7 @@ wss.on("connection", function(sock) {
   
   sock.on("message", function(data) {
     var arr = data.split("{");
+    console.log("on message arr.length: " + arr.length);
     if(arr.length > 1){ 
       // message {receiver}{message}
       var receiver = arr[0].split("}")[0];
