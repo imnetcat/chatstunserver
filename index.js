@@ -32,15 +32,12 @@ wss.on("connection", function(sock) {
       console.log("receiver: " + receiver); 
       var n = 0;
       while(n < CLIENTS.length){
-        console.log(CLIENTS[n].nickg + " == " + receiver);
         if(CLIENTS[n].nickg == receiver){
           break;
         }
         n++;
       }
-      console.log(n);
       if(n != CLIENTS.length){
-        console.log("message sending...");
         CLIENTS[n].socketg.send(message);
         console.log("message was send");
       }
