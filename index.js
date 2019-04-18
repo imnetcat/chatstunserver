@@ -36,6 +36,7 @@ wss.on("connection", function(sock) {
         if(CLIENTS[n].nickg == receiver){
           break;
         }
+        n++;
       }
       console.log(n);
       if(n != CLIENTS.length){
