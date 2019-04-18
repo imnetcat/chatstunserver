@@ -43,7 +43,7 @@ wss.on("connection", function(sock) {
     }else{
       // set nickname {nickname}
       console.log("the nick name set " + arr[1].split("}")[0]);
-      CLIENTS[id].nicks(arr[1].split("}")[0]);
+      CLIENTS[id].nicks = arr[1].split("}")[0];
     }
   });
   
