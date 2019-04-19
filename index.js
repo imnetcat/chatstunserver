@@ -40,6 +40,8 @@ wss.on("connection", function(sock) {
       if(n != CLIENTS.length){
         CLIENTS[n].socketg.send(message);
         console.log("message was send");
+      }else{
+        console.log("receiver not found");
       }
     }else{
       // set nickname {nickname}
@@ -49,7 +51,7 @@ wss.on("connection", function(sock) {
   });
   
   sock.on("close", function(event) {
-    console.log("websocket connection close (" + event.code + ")");
+    console.log("connection close (" + event.code + ")");
     CLIENTS.splice(id, 1);
   });
 });
