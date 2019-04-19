@@ -81,3 +81,9 @@ class CLIENT {
     this.nick = newValue;
   }
 }
+
+setInterval(() => {
+  wss.clients.forEach((client) => {
+    client.send("ping");
+  });
+}, 5000);
