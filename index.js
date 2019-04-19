@@ -48,8 +48,8 @@ wss.on("connection", function(sock) {
     }
   });
   
-  sock.on("close", function() {
-    console.log("websocket connection close");
+  sock.on("close", function(event) {
+    console.log("websocket connection close (" + event.code + ")");
     CLIENTS.splice(id, 1);
   });
 });
