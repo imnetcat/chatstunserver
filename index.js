@@ -38,6 +38,7 @@ wss.on("connection", function(sock) {
         n++;
       }
       if(n != CLIENTS.length){
+        console.log(n + " != " + CLIENTS.length);
         CLIENTS[n].socketg.send(message);
         console.log("message was send");
       }else{
