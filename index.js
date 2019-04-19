@@ -10,7 +10,7 @@ var server = http.createServer(app);
 server.listen(port);
 
 var wss = new WebSocketServer({server: server});
-console.log("websocket server created");
+console.log("Server created | port: " + port);
 
 var CLIENTS = new Array();
 
