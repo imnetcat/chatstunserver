@@ -52,8 +52,13 @@ wss.on("connection", function(sock) {
   });
   
   sock.on("close", function(event) {
-    console.log("connection close (" + event.code + ")");
+    console.log("Connection with " + CLIENTS[id].nickg +" close");
     CLIENTS.splice(id, 1);
+    console.log("New connection array: ");
+    var n = 0;
+    while(n < CLIENTS.length){
+      console.log(n + ": " +CLIENTS[n].nickg);
+    }
   });
 });
 
