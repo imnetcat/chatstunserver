@@ -58,6 +58,7 @@ wss.on("connection", function(sock) {
     var n = 0;
     while(n < CLIENTS.length){
       console.log(n + ": " +CLIENTS[n].nickg);
+      n++;
     }
   });
 });
