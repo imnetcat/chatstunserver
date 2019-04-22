@@ -24,11 +24,8 @@ wss.on("connection", function(sock) {
   sock.on("message", function(data) {
     var arr = data.split("{");
     if(arr.length > 2){ 
-      // message {receiver}{message}
-      var receiver = arr[1].split("}")[0];
-      var message = arr[2].split("}")[0];
-      console.log("message: " + message); 
-      console.log("receiver: " + receiver); 
+      // message {sender}{receiver}{message}
+      var receiver = arr[2].split("}")[0];
       var n = 0;
       while(n < CLIENTS.length){
         if(CLIENTS[n].nickg == receiver){
@@ -37,10 +34,7 @@ wss.on("connection", function(sock) {
         n++;
       }
       if(n != CLIENTS.length){
-        CLIENTS[n].socketg.send(message);
-        console.log("message was send");
-      }else{
-        console.log("receiver not found");
+        CLIENTS[n].socketg.send(data);
       }
     }else{
       // set nickname {nickname}
@@ -68,12 +62,6 @@ wss.on("connection", function(sock) {
     CLIENTS.splice(id, 1);
   });
 });
-
-function sendAll (message) {
-    for (var i=0; i<CLIENTS.length; i++) {
-        CLIENTS[i].socketg.send(message);
-    }
-}
 
 class CLIENT {
   constructor(socket, nick) { 
