@@ -46,8 +46,18 @@ wss.on("connection", function(sock) {
       }
     }else{
       // set nickname {nickname}
-      console.log("the nick name set " + arr[1].split("}")[0]);
-      CLIENTS[id].nicks = arr[1].split("}")[0];
+      var nick = arr[1].split("}")[0];
+      for(var n = 0; n < CLIENTS.length; n++){
+        if(CLIENTS[n].nicks == nick)
+          break;
+      }
+      if(n != CLIENTS.length){
+        CLIENTS[id].nicks = nick;
+        CLIENTS[id].socketg.send("true");
+        console.log("nick name set " + nick);
+      }else{
+        console.log("nick not valid");
+        CLIENTS[id].socketg.send("false");
     }
   });
   
