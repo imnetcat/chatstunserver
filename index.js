@@ -15,7 +15,7 @@ console.log("Server created | port: " + port);
 var CLIENTS = new Array();
 
 wss.on("connection", function(sock) {
-  
+  console.log("ws server connection open!");
   var id = CLIENTS.length;
   
   var tmp = new CLIENT(sock, "");
