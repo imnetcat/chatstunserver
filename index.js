@@ -52,6 +52,9 @@ wss.on("connection", function(sock) {
   });
   
   sock.on("close", function(event) {
+    while(CLIENTS.length <= id){
+      id--;
+    }
     console.log("Connection with " + CLIENTS[id].nickg +" close");
     CLIENTS.splice(id, 1);
   });
