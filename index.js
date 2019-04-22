@@ -57,7 +57,6 @@ wss.on("connection", function(sock) {
       }else{
         CLIENTS[id].socketg.send("false");
         CLIENTS[id].socketg.close();
-        CLIENTS.splice(id, 1);
       }
     }
   });
