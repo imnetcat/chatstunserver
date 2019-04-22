@@ -50,7 +50,7 @@ wss.on("connection", function(sock) {
         if(CLIENTS[n].nicks == nick)
           break;
       }
-      if(n != CLIENTS.length){
+      if(n == CLIENTS.length){
         CLIENTS[id].nicks = nick;
         CLIENTS[id].socketg.send("true");
         console.log(nick + " connected");
