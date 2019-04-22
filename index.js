@@ -26,16 +26,19 @@ wss.on("connection", function(sock) {
     if(arr.length > 2){ 
       // message {sender}{receiver}{message}
       var receiver = arr[2].split("}")[0];
-      console.log("arr[2]: " +arr[2]);
       console.log("receiver: " +receiver);
       var n = 0;
       while(n < CLIENTS.length){
+        console.log("if " + CLIENTS[n].nickg+" == "+receiver);
         if(CLIENTS[n].nickg == receiver){
           break;
         }
         n++;
       }
+      console.log("n: " +n);
+      console.log("CLIENTS.length: " +CLIENTS.length);
       if(n != CLIENTS.length){
+        console.log("CLIENTS[n].socketg: " +CLIENTS[n].socketg);
         CLIENTS[n].socketg.send(data);
       }
     }else{
