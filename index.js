@@ -26,6 +26,8 @@ wss.on("connection", function(sock) {
     if(arr.length > 2){ 
       // message {sender}{receiver}{message}
       var receiver = arr[2].split("}")[0];
+      console.log("arr[2]: " +arr[2]);
+      console.log("receiver: " +receiver);
       var n = 0;
       while(n < CLIENTS.length){
         if(CLIENTS[n].nickg == receiver){
@@ -33,10 +35,6 @@ wss.on("connection", function(sock) {
         }
         n++;
       }
-      console.log("receiver: " +receiver);
-      console.log("n: " + n);
-      console.log("CLIENTS.length: " + CLIENTS.length);
-      console.log("CLIENTS[n].nickg: " + CLIENTS[n].nickg);
       if(n != CLIENTS.length){
         CLIENTS[n].socketg.send(data);
       }
