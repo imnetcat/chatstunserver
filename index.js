@@ -33,6 +33,9 @@ wss.on("connection", function(sock) {
         }
         n++;
       }
+      console.log("n: " + n);
+      console.log("CLIENTS.length: " + CLIENTS.length);
+      console.log("CLIENTS[n].nickg: " + CLIENTS[n].nickg);
       if(n != CLIENTS.length){
         CLIENTS[n].socketg.send(data);
       }
