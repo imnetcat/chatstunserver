@@ -15,7 +15,6 @@ console.log("Server created | port: " + port);
 var CLIENTS = new Array();
 
 wss.on("connection", function(sock) {
-  console.log("websocket connection open");
   
   var id = CLIENTS.length;
   
@@ -54,9 +53,8 @@ wss.on("connection", function(sock) {
       if(n != CLIENTS.length){
         CLIENTS[id].nicks = nick;
         CLIENTS[id].socketg.send("true");
-        console.log("nick name set " + nick);
+        console.log(nick + " connected");
       }else{
-        console.log("nick not valid");
         CLIENTS[id].socketg.send("false");
         CLIENTS[id].socketg.close();
         CLIENTS.splice(id, 1);
