@@ -58,6 +58,8 @@ wss.on("connection", function(sock) {
       }else{
         console.log("nick not valid");
         CLIENTS[id].socketg.send("false");
+        CLIENTS[id].socketg.close();
+        CLIENTS.splice(id, 1);
       }
     }
   });
