@@ -33,6 +33,7 @@ wss.on("connection", function(sock) {
         }
         n++;
       }
+      console.log("receiver: " +receiver);
       console.log("n: " + n);
       console.log("CLIENTS.length: " + CLIENTS.length);
       console.log("CLIENTS[n].nickg: " + CLIENTS[n].nickg);
