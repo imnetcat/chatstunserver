@@ -7,6 +7,3 @@ Simple stun-server for NAT traversal
 
 3. run `npm i`
 
->Доповідь знаходиться [тут](./doc/asynchronous_programming.md)
-
-><a href="https://github.com/ForeverProglamer/async-code-in-js" target="_blank">https://github.com/ForeverProglamer/async-code-in-js</a>
